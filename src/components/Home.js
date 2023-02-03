@@ -1,11 +1,15 @@
 import React from "react";
 import fbimg from '../images/icons8-facebook.png';
+import { useDispatch } from "react-redux";
+import { addUser } from "../Store/reducers/flightStore";
 
 const Home = () => {
 
+    const dispatch = useDispatch();
     const handleClick = (e) => {
         e.preventDefault();
-        alert('clicked');
+        //dispatch(addUser);
+        window.location.replace('http://localhost:3001/auth/facebook')
     }
     return (
         <>

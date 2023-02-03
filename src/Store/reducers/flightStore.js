@@ -9,16 +9,16 @@ const initialState = {
     }
 };
 
-export const addUser = createAsyncThunk('flightSlice/create', async (data, thunkApi) => {
+export const getUser = createAsyncThunk('flightSlice/create', async (data, thunkApi) => {
     const requestOptions = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
+        // method: '',
+        // headers: {
+        //     'Content-Type': 'application/json',
+        // },
+        // body: JSON.stringify(data)
     };
 
-    const response = await fetch('http://localhost:3001/adduser', requestOptions);
+    const response = await fetch('http://localhost:3001/getuser');
     return response.json();
 
 });
@@ -28,14 +28,14 @@ const flightSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: {
-        [addUser.pending]: ()=>{
+        [getUser.pending]: ()=>{
             console.log('pending')
         },
-        [addUser.fulfilled]: (state, action) => {
+        [getUser.fulfilled]: (state, action) => {
             console.log('fulfilled');
             state.currentUser = action.payload.data;
         },
-        [addUser.rejected]: ()=>{
+        [getUser.rejected]: ()=>{
             console.log('rejected');
         }
     }
