@@ -11,14 +11,14 @@ const initialState = {
 
 export const getUser = createAsyncThunk('flightSlice/create', async (data, thunkApi) => {
     const requestOptions = {
-        // method: '',
-        // headers: {
-        //     'Content-Type': 'application/json',
-        // },
-        // body: JSON.stringify(data)
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
     };
 
-    const response = await fetch('http://localhost:3001/getuser');
+    const response = await fetch('http://localhost:3001/getuser', requestOptions);
     return response.json();
 
 });
