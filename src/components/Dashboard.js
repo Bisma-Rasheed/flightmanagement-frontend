@@ -9,10 +9,10 @@ const Dashboard = () => {
     const dispatch = useDispatch();
     const { currentUser } = useSelector((state) => state.flightapp);
 
-    const email = routeParams.id;
+    const fbID = routeParams.id;
 
     useEffect(() => {
-        dispatch(getUser({ email: email }))
+        dispatch(getUser({ id: fbID }))
     }, []);
 
 
