@@ -6,7 +6,9 @@ const initialState = {
         name: '',
         email: '',
         flight: []
-    }
+    },
+    isLoggedIn: false,
+    loader: false
 };
 
 export const getUser = createAsyncThunk('flightSlice/create', async (data, thunkApi) => {
@@ -26,19 +28,32 @@ export const getUser = createAsyncThunk('flightSlice/create', async (data, thunk
 const flightSlice = createSlice({
     name: 'flightSlice',
     initialState,
-    reducers: {},
+    reducers: {
+        loggingIn: (state, action) => {
+            state.isLoggedIn = action.payload
+        },
+
+        currentuser: (state, action) => {
+            state.currentUser = action.payload;
+            state.token = null
+        }
+    },
     extraReducers: {
-        [getUser.pending]: ()=>{
+        [getUser.pending]: (state) => {
+            state.loader = true;
             console.log('pending')
         },
         [getUser.fulfilled]: (state, action) => {
             console.log('fulfilled');
+            state.loader = false;
+            state.isLoggedIn = true;
             state.currentUser = action.payload.data;
         },
-        [getUser.rejected]: ()=>{
+        [getUser.rejected]: () => {
             console.log('rejected');
         }
     }
 });
 
+export const {currentuser, loggingIn} = flightSlice.actions;
 export default flightSlice.reducer;
