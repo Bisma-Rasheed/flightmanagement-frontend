@@ -16,7 +16,7 @@ const Home = () => {
     }
     return (
         <>
-        <h1>Welcome to Flight Management System</h1>
+        <nav className="navbar1">Welcome to Flight Management System</nav>
             <div className="maindiv">
                 <div className='button' onClick={handleClick}>
                     <img src={fbimg} />

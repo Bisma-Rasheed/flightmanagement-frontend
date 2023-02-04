@@ -35,7 +35,6 @@ const flightSlice = createSlice({
 
         currentuser: (state, action) => {
             state.currentUser = action.payload;
-            state.token = null
         }
     },
     extraReducers: {

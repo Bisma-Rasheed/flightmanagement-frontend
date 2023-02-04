@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../Store/reducers/flightStore";
 import { useParams, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Card from "./Card";
+import airplane from '../images/icons8-airplane-animate.gif'
+import airplane1 from '../images/icons8-airplane-static.png'
 
 const Dashboard = () => {
 
@@ -20,15 +23,28 @@ const Dashboard = () => {
 
     return (!loader ?
         <>
-            <div className="upperdiv">
-                <nav style={{ color: "black" }} className="navbar1">{currentUser.email}<Link style={{ color: "aliceblue" }} to="/">Log out</Link></nav>
-                <span className="meridiv">
-                    <div>
-                        <p className="p1">Welcome {currentUser.name}</p>
+        
+        <nav style={{ color: "black" }} className="navbar1">Email: {currentUser.email}<Link style={{ color: "aliceblue", textAlign:"end", padding:'320px' }} to="/">Log out</Link></nav>
+            <div className="upperdiv">   
+                <span>
+                    <div className="span">
+                        <p className="p1">Welcome, {currentUser.name}</p>
+                        <img style={{marginLeft:'450px'}} src={airplane1}/>
                     </div>
                 </span>
+                <div className="card_div">
+                    {currentUser.flight.map((flight,index)=>
+                        <Card from={flight.from}
+                            to={flight.to}
+                            dep={flight.dateOfDep}
+                            arrival={flight.dateOfArrival}
+                            type={flight.flightType}
+                        />
+                    )}
+                </div>
             </div>
-        </>:<h1>Loading...</h1>
+            
+         </>:<h1>Loading...</h1>
     )
 }
 
