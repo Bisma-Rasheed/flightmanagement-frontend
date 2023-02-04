@@ -29,7 +29,7 @@ const Dashboard = () => {
                 <span>
                     <div className="span">
                         <p className="p1">Welcome, {currentUser.name}</p>
-                        <img style={{marginLeft:'450px'}} src={airplane1}/>
+                        <img style={{marginLeft:'450px'}} src={airplane}/>
                     </div>
                 </span>
                 <div className="card_div">
