@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../Store/reducers/flightStore";
-import { useParams, Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import Card from "./Card";
-import airplane from '../images/icons8-airplane-animate.gif'
-import airplane1 from '../images/icons8-airplane-static.png'
+import airplane from '../images/icons8-airplane-animate.gif';
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
 
@@ -44,8 +43,8 @@ const Dashboard = () => {
                 </div>
             </div>
             
-         </>:<h1>Loading...</h1>
-    )
+         </>:<h1>Loading...</h1>)
+    
 }
 
 export default Dashboard;

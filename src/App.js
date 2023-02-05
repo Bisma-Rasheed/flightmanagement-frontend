@@ -16,7 +16,7 @@ const App = () => {
 
 
     </>
-  )//#17A9FD
+  )
 }
 
 export default App;

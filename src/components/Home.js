@@ -3,9 +3,7 @@ import fbimg from '../images/icons8-facebook.png';
 import { useDispatch } from "react-redux";
 import { currentuser, loggingIn, destroySession } from '../Store/reducers/flightStore';
 import Lottie from 'lottie-react';
-import plane from '../images/plane.json';
 import anime from '../images/lottieanime.json';
-import flight from '../images/Flights.json';
 import mapplane from '../images/mapflight.json'
 
 const Home = () => {
@@ -14,7 +12,7 @@ const Home = () => {
 
     dispatch(loggingIn(false));
     dispatch(currentuser({}));
-    dispatch(destroySession());
+    // dispatch(destroySession());
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -31,7 +29,7 @@ const Home = () => {
                 </span>
                 <div className='button' onClick={handleClick}>
                     <img src={fbimg} />
-                    <p>Continue With Facebook</p>
+                    <p>Login With Facebook</p>
                 </div>
             </div>
         </>

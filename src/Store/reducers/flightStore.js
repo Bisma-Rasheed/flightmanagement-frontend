@@ -8,7 +8,7 @@ const initialState = {
         flight: []
     },
     isLoggedIn: false,
-    loader: false
+    loader: false,
 };
 
 export const getUser = createAsyncThunk('flightSlice/create', async (data, thunkApi) => {
@@ -25,7 +25,7 @@ export const getUser = createAsyncThunk('flightSlice/create', async (data, thunk
 
 });
 
-export const destroySession = createAsyncThunk('flightSlice/destroy', async (data)=>{
+export const destroySession = createAsyncThunk('flightSlice/destroy', async ()=>{
     const response = await fetch('http://localhost:3001/destroysession');
     return response.json();
 
@@ -50,6 +50,7 @@ const flightSlice = createSlice({
         },
         [getUser.fulfilled]: (state, action) => {
             console.log('fulfilled');
+            state.isError = false;
             state.loader = false;
             state.isLoggedIn = true;
             state.currentUser = action.payload.data;
