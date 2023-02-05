@@ -25,6 +25,12 @@ export const getUser = createAsyncThunk('flightSlice/create', async (data, thunk
 
 });
 
+export const destroySession = createAsyncThunk('flightSlice/destroy', async (data)=>{
+    const response = await fetch('http://localhost:3001/destroysession');
+    return response.json();
+
+})
+
 const flightSlice = createSlice({
     name: 'flightSlice',
     initialState,
@@ -49,6 +55,16 @@ const flightSlice = createSlice({
             state.currentUser = action.payload.data;
         },
         [getUser.rejected]: () => {
+            console.log('rejected');
+        },
+        [destroySession.pending]:()=>{
+            console.log('pending')
+        },
+        [destroySession.fulfilled]: (state, action) => {
+            console.log('fulfilled');
+            console.log(action.payload.message);
+        },
+        [destroySession.rejected]: () => {
             console.log('rejected');
         }
     }

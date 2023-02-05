@@ -6,7 +6,7 @@
 
 .maindiv {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -88,8 +88,9 @@ span {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 198px;
+  /* margin-top: 198px; */
   background-color: #17A9FD;
+  margin-right: 1180px;
   padding: 8px;
   border-radius: 50px;
   cursor: pointer;
